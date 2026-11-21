@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List 3D Kawaii 🐾 — Najwa</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%23ffb8d2'/%3E%3Ctext x='50' y='69' font-size='62' text-anchor='middle'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-pink"></span>
+    <span class="blob blob-lilac"></span>
+    <span class="blob blob-mint"></span>
+    <span class="floater floater-1">✦</span>
+    <span class="floater floater-2">♡</span>
+    <span class="floater floater-3">★</span>
+    <span class="floater floater-4">✿</span>
+  </div>
+
+  <div class="page-shell">
+    <aside class="mascot-panel" aria-label="Panggung Maskot Mochi 3D">
+      <div class="mascot-header">
+        <span class="mascot-name">Mochi Companion</span>
+        <span id="mascot-mood-badge" class="mood-badge" data-mood="empty">Lagi Sepi 😿</span>
+      </div>
+
+      <div id="mascot-bubble" class="mascot-bubble" aria-live="polite">
+        Belum ada tugas nih, Najwa! Yuk tambah satu 🐾
+      </div>
+
+      <div
+        id="mascot-stage"
+        class="mascot-stage"
+        role="button"
+        tabindex="0"
+        aria-label="Maskot kucing Mochi 3D. Klik atau tekan Enter untuk pesan penyemangat"
+      >
+        <div class="mascot-fallback" aria-hidden="true">
+          <div class="fallback-cat">🐱</div>
+          <span class="fallback-shadow"></span>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-row">
+          <span class="progress-label">Progres Harian</span>
+          <span id="progress-text" class="progress-text">0% selesai (0/0)</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+        <p class="mascot-hint">Klik Mochi untuk semangat · Arahkan kursor agar Mochi menoleh</p>
+      </div>
+    </aside>
+
+    <main class="app" id="todo-card">
+      <header class="app-header">
+        <div class="title-wrap">
+          <h1>📝 To-Do List</h1>
+          <p class="subtitle">Daftar tugas manis &amp; interaktif · JavaScript DOM</p>
+        </div>
+        <button
+          type="button"
+          id="btn-mute"
+          class="icon-btn mute-btn"
+          aria-label="Matikan suara efek"
+          aria-pressed="false"
+          title="Suara efek aktif"
+        >🔊</button>
+      </header>
+
+      <form id="form-todo" autocomplete="off">
+        <div class="input-row">
+          <label for="input-todo" class="sr-only">Tulis tugas baru</label>
+          <input
+            type="text"
+            id="input-todo"
+            placeholder="Tulis tugas baru..."
+            maxlength="140"
+            required
+          >
+          <button type="submit" class="btn-primary">Tambah</button>
+        </div>
+
+        <fieldset class="priority-group">
+          <legend class="sr-only">Pilih prioritas tugas</legend>
+          <span class="priority-title">Prioritas:</span>
+          <label class="priority-pill priority-penting">
+            <input type="radio" name="prioritas" value="penting">
+            <span>🔥 Penting</span>
+          </label>
+          <label class="priority-pill priority-biasa">
+            <input type="radio" name="prioritas" value="biasa" checked>
+            <span>⭐ Biasa</span>
+          </label>
+          <label class="priority-pill priority-santai">
+            <input type="radio" name="prioritas" value="santai">
+            <span>🌱 Santai</span>
+          </label>
+        </fieldset>
+      </form>
+
+      <div class="toolbar-row">
+        <p id="stats" aria-live="polite">0 tugas belum selesai</p>
+        <button type="button" id="btn-clear-done" class="btn-clear" disabled>
+          Hapus yang selesai (0)
+        </button>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter daftar tugas">
+        <button type="button" class="filter-btn active" data-filter="semua" aria-pressed="true">Semua</button>
+        <button type="button" class="filter-btn" data-filter="aktif" aria-pressed="false">Aktif</button>
+        <button type="button" class="filter-btn" data-filter="selesai" aria-pressed="false">Selesai</button>
+      </div>
+
+      <ul id="list-todo" aria-label="Daftar tugas"></ul>
+
+      <p class="tip-line">Tip: Klik ganda atau tekan ✏️ untuk edit · Seret ⠿ untuk ubah urutan</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>Najwa Azizah · 240511114 · TI24D — Pemrograman Berbasis Platform (LKP 3A)</span>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="mascot.js"></script>
+</body>
+</html>
